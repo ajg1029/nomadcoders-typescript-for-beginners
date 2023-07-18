@@ -1,0 +1,75 @@
+# 02_00
+
+일반적으로는 코드 작성 -> 컴파일러 작동
+타입스크립트는 코드 작성 -> 자바스크립트로 변환 시 발생 가능한 에러 감지 -> 자바스크립트로 컴파일
+
+에러 감지 시 컴파일 안 됨 (런타임 에러, 버그 등 발생 가능성 ↓)
+
+# 02_01
+
+타입 추론하게끔 작성
+타입 명시하여 작성
+추론을 하지 못하는 경우를 제외하면 type checker 를 이용한 타입 추론 방식 코드 작성을 추천 (효율적임)
+
+# 02_02
+
+- basic types:
+
+number
+string
+boolean
+
+- optional types:
+
+const player : {
+    name: string,
+    age?: number
+} = {
+    name: "deon"
+}
+
+- alias type:
+
+type Player = {
+    name: string,
+    age?: number
+}
+const deon : Player = {
+    name: "deon"
+}
+const hanbin : Player = {
+    name: "deon",
+    age: 30
+}
+
+- return type 지정 :
+
+function playerMaker(name:string) : Player {
+    return {
+        name
+    }
+}
+const seph = playerMaker("seph")
+seph.age = 18
+
+# 02_03
+
+기억할 필요 없고 이해만 하면 된다고 했으니까 필기 생략 ㅋㅅㅋ 아니 대충이라도 ㅇㅅㅇ
+
+readonly type (읽기 전용) --> 수정 불가
+
+Tuple : 특정 위치에 특정 타입이 있는 array
+
+any ... 타입스크립트의 보호장치로부터 탈출 !!
+니코쌤 왈 any 안 쓰는 걸 추천
+
+# 02_04
+
+"TypeScript에서 중요한 포인트는 Type Checker와 소통하는 거야"
+
+unknown - 타입을 먼저 확인한 이후에 사용해야 함
+
+void - 리턴값 없는 함수 (보통 따로 지정해줄 필요가 없는 타입임)
+
+never - return 하지 않고 오류를 발생시키는 타입 (실행되지 않아야 할 때 사용)
+
