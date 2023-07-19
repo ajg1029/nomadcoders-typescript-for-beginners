@@ -1,0 +1,1 @@
+const baegopa = () => "배고파"
